@@ -4,12 +4,24 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+My life step by step:
+- Make CS:S Movies
+- Get into VB.Net programming
+- Switch to C#
+- Make private hacks
+- Make random windows desktop software using different languages
+- Switch to Java
+- Get rekt by android development (design)
+- Get a macbook
+- Try Objective-C
+- Get rekt
+- Wait until Apple Releases Swift
+- Get in love with Swift
+- Get a job in iOS development
+- Make iOS apps
 
-### More Information
+Currently working at IT company in Russia, also developing SESHapp for #TeamSESH.
 
-A place to include any other types of information that you'd like to include about yourself.
+### Email me if you have some dank memes
 
-### Contact me
-
-[email@domain.com](mailto:email@domain.com)
+[andrewl@vinaes.co](mailto:andrewl@vinaes.co)
