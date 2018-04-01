@@ -16,7 +16,7 @@ First of all, we have two screens:
 - The common: tracks list and artists
 - The main one: player.
 
-Both have to interact the same. If we change track from the common one, the track _must_ be changed in the main one. The first thing that came out to my head was using KVO and tranfer some important pointers of the current playing item and store track info somewhere in shared memory (_can I say like that?_). But this idea is pretty old. In case of fashion. Who uses system's KVO when we have RX? Hello, RxCocoa. My thoughts were: huh, it's going to be pretty easy and I'll write my own wrappers. But nah, I found a pretty cool extension for AVPlayer: https://github.com/pmick/RxAVFoundation. It made the idea much more easier to implement. Thanks, based God. 
+Both have to interact the same. If we change track from the common one, the track _must_ be changed in the main one. The first thing that came out to my head was using KVO and transfer some important pointers of the current playing item and store track info somewhere in shared memory (_can I say like that?_). But this idea is pretty old. In case of fashion. Who uses system's KVO when we have RX? Hello, RxCocoa. My thoughts were: huh, it's going to be pretty easy and I'll write my own wrappers. But nah, I found a pretty cool extension for AVPlayer: https://github.com/pmick/RxAVFoundation. It made the idea much more easier to implement. Thanks, based God. 
 
 >So, the way is: subscribe to main events (player's status, such as play, pause, track change) in the common screen, post them to both screens, implement some iOS delegates, and, bahm, its working. Easy. 
 
@@ -35,7 +35,7 @@ If the player reached the end, then simply change our player's internal status t
 Conclusion: two screens, first one controls mostly everything (events, track change, tracks pagination, etc), the second one controls the player itself and delegates to the first one all the events. The first one uses dumb stuff like _updatePlayer_, _updateCurrentTime_ that are functions of the Player itself. 
 
 ### But then....
-Volume. Seems easy, yay? Yes, it is, but I dont like to install raw app's builds to my iPhone and mostly using the simulator. I googled a lil bit and found out that I have to use _MPVolumeView_ to change system volume.
+Volume. Seems easy, yay? Yes, it is, but I dont like to install raw app's builds to my iPhone and mostly I use the simulator. I googled a lil bit and found out that I have to use _MPVolumeView_ to change system volume.
 
 WTF? Like, really, implementing a view to change system's volume? Ok, let's assume thats about _Think Different_. Some SO post told me that _MPVolumeView_ is a subclass of _UISlider_. Which is not. It looks like slider, but it's not. It's a subclass of UIView (at least, in terms of Interface Builder). Changing background color to clear, implementing subclass - phew - not working. Kek. Why? Well, for some reason iOS simulator does not support displaying _MPVolumeView_. It took me some times to realize that.
 
